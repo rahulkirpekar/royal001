@@ -1,0 +1,47 @@
+Configuration:-
+---------------
+
+1.servlet level:-
+-----------------
+
+	FirstServlet		SecondServlet	
+	     |			    |
+	FirstServletConfig	SecondServletConfig
+
+	ThirdServlet
+	     |
+	ThirdServletConfig
+
+
+
+2.application level:-
+---------------------
+
+
+
+
+
+
+Servlet Collaboration:-
+----------------------
+
+	FirstServlet(request,response)-------------------->SecondServlet---------------------->ThirdServlet
+	   |						 |(request,response)
+	--------------------------------------------------
+--------------------------------------------------------------------------------
+
+	1. request:-
+	------------
+	FirstServlet:-
+	---------------
+		RequestDispacher rd= request.getRequestDispacher("urlPattern");
+		rd.forward(request,response);
+		//rd.include(request,response);
+
+	2. response:-
+	---------------									
+		response.sendRedirect("www.google.com");
+
+
+	
+

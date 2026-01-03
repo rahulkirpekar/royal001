@@ -1,0 +1,83 @@
+Attributes in Servlet:-
+-----------------------
+Data Sharing Scope:-
+---------------------
+
+	1. request(HttpServletRequest) :-
+	---------------------------------
+		1. setAttribute(String key,Object value);
+		2. removeAttribute(String key);
+		3. Object obj = getAttribute(String key);
+
+   s1
+   s2
+   s3
+    |
+EightServlet(request,response)--------------------------------------->(request,response)-NinthServlet	
+    |										|
+request.setAttribute("student1",s1);					Object obj = request.getAttribute("student1");
+request.setAttribute("student2",s2);					Student s1 = (Student)obj;
+request.setAttribute("student3",s3);					SOP(s1.getRno()+" " + s1.getName()+" " + s1.getStd());
+    |
+RequestDispacher rd = request.getRequestDispacher("NinthServlet");	request.removeAttribute("student3");
+
+rd.forward(request,response);						RequestDispacher rd = request.getRequestDispacher("TenthServlet");
+									rd.forward(request,response);
+
+
+
+
+
+
+									session					
+	2. session(HttpSession) :-		login<-------------------------------------------->logout
+	----------------------------		  |						     |	
+				HttpSession session = request.getSession();			session.invalidate();	
+
+				session.setAttribute("student1",s1);
+
+
+		1. setAttribute(String key,Object value);
+		2. removeAttribute(String key);
+		3. Object obj = getAttribute(String key)
+
+
+
+
+
+
+	3. application(ServletContext) :-
+	---------------------------------
+		1. setAttribute(String key,Object value);
+		2. removeAttribute(String key);
+		3. Object obj = getAttribute(String key);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
