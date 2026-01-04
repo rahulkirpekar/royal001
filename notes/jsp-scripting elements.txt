@@ -1,0 +1,77 @@
+Jsp--Java Server Pages
+--------------------------
+	HTML---tags
+	 |
+	Jsp- [Html Code(90%) + Java Code(10%)]
+	Servlet[Html Code(10%) + Java Code(90%)]
+-------------------------------------------------------------------------
+
+	output
+	  |
+	 run
+	  |
+	home_jsp.class(compile---class file)
+	  |
+	home_jsp.java(Servlet File)---[translate jsp--servlet]
+	  |
+	home.jsp
+
+
+1. Servlet				Jsp
+
+
+	init()-------------------> _jspInit()
+
+	service()----------------> _jspService()
+
+	destroy()----------------> _jspDestroy()
+
+Scripting Elements :-
+---------------------
+
+1. scriptlet tag:-   service() { Java Code }
+-------------------
+
+	<%
+		Java Code
+
+	%>
+
+
+2. expression tag:-
+-------------------
+
+	<%= 	%>
+
+3. declaration tag:-
+-------------------
+	<%!
+
+
+
+
+	%>
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
