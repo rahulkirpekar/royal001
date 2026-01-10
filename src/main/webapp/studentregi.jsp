@@ -71,13 +71,13 @@
     <h2>Student Registration Form</h2>
 
     <form action="InsertStudentServlet">
-        <label>Full Name:</label>  
+        <label>Full Name:</label>  ${fullnameErr}
         <input type="text" name="fullname"  > 
 
-        <label>Age:</label>
+        <label>Age:</label> ${ageErr}
         <input type="number" name="age" >
 
-        <label>Select Course:</label> 
+        <label>Select Course:</label>  ${courseErr}
         <select name="course">   
             <option value="">-- Select Course --</option>
 
@@ -94,14 +94,14 @@
         </select>
 
 
-        <label>Gender:</label><br>
+        <label>Gender:</label> ${genderErr}<br>
         <input type="radio" name="gender" value="Male"  > Male
         <input type="radio" name="gender" value="Female"> Female
         <input type="radio" name="gender" value="Other" > Other
         <br><br>
 
 
-        <label>Hobbies:</label>   <br>
+        <label>Hobbies:</label> ${hobbiesErr}   <br>
         <input type="checkbox" name="hobby" value="Reading"> Reading
         <input type="checkbox" name="hobby" value="Music"> Music
         <input type="checkbox" name="hobby" value="Sports"> Sports
@@ -109,16 +109,16 @@
         <br><br>
 
 
-        <label>Date of Birth:</label> 
+        <label>Date of Birth:</label> ${dobErr}
         <input type="date" name="dob" >
 
-        <label>Email ID:</label>  
+        <label>Email ID:</label>  ${emailErr}
         <input type="email" name="email" >
 
-        <label>Mobile Number:</label>  
+        <label>Mobile Number:</label> ${mobileErr} 
         <input type="tel" name="mobile" >
 
-        <label>Address:</label> 
+        <label>Address:</label> ${addressErr}
         <textarea name="address" rows="3"></textarea>
 
         <div class="btn-container">
