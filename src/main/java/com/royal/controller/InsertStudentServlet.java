@@ -131,6 +131,8 @@ public class InsertStudentServlet extends HttpServlet
 			flag = true;
 		}
 		
+		request.setAttribute("sbean", sbean);
+		
 		RequestDispatcher rd = null;
 		
 		if (flag) 

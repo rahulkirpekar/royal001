@@ -72,54 +72,54 @@
 
     <form action="InsertStudentServlet">
         <label>Full Name:</label>  ${fullnameErr}
-        <input type="text" name="fullname"  > 
+        <input type="text" name="fullname" value="${sbean.fullname}" > 
 
         <label>Age:</label> ${ageErr}
-        <input type="number" name="age" >
+        <input type="number" name="age"  value="${sbean.age}">
 
         <label>Select Course:</label>  ${courseErr}
         <select name="course">   
             <option value="">-- Select Course --</option>
 
-            <option value="C Programming" >C Programming</option>
+            <option value="C Programming" ${sbean.course=='C Programming' ? 'selected' : ''}>C Programming</option>
             
-            <option value="C++" >C++</option>
+            <option value="C++"  ${sbean.course=='C++' ? 'selected' : ''}>C++</option>
             
-            <option value="Core Java" >Core Java</option>
+            <option value="Core Java"  ${sbean.course=='Core Java' ? 'selected' : ''}>Core Java</option>
             
-            <option value="Advanced Java">Advanced Java</option>
+            <option value="Advanced Java"  ${sbean.course=='Advanced Java' ? 'selected' : ''}>Advanced Java</option>
             
-            <option value="Python">Python</option>
+            <option value="Python"  ${sbean.course=='Python' ? 'selected' : ''}>Python</option>
             
         </select>
 
 
         <label>Gender:</label> ${genderErr}<br>
-        <input type="radio" name="gender" value="Male"  > Male
-        <input type="radio" name="gender" value="Female"> Female
-        <input type="radio" name="gender" value="Other" > Other
+        <input type="radio" name="gender" value="Male"  ${sbean.gender=='Male' ? 'checked' : ''}> Male
+        <input type="radio" name="gender" value="Female"  ${sbean.gender=='Female' ? 'checked' : ''}> Female
+        <input type="radio" name="gender" value="Other"  ${sbean.gender=='Other' ? 'checked' : ''}> Other
         <br><br>
 
 
         <label>Hobbies:</label> ${hobbiesErr}   <br>
-        <input type="checkbox" name="hobby" value="Reading"> Reading
-        <input type="checkbox" name="hobby" value="Music"> Music
-        <input type="checkbox" name="hobby" value="Sports"> Sports
-        <input type="checkbox" name="hobby" value="Coding"> Coding
+        <input type="checkbox" name="hobby" value="Reading"  ${sbean.isAvailableHobbies("Reading") ? 'checked' : '' }  > Reading
+        <input type="checkbox" name="hobby" value="Music"    ${sbean.isAvailableHobbies("Music")   ? 'checked' : '' }  > Music
+        <input type="checkbox" name="hobby" value="Sports"   ${sbean.isAvailableHobbies("Sports")  ? 'checked' : '' }  > Sports
+        <input type="checkbox" name="hobby" value="Coding"   ${sbean.isAvailableHobbies("Coding")  ? 'checked' : '' }  > Coding
         <br><br>
 
 
         <label>Date of Birth:</label> ${dobErr}
-        <input type="date" name="dob" >
+        <input type="date" name="dob"  value="${sbean.dob}">
 
         <label>Email ID:</label>  ${emailErr}
-        <input type="email" name="email" >
+        <input type="email" name="email"  value="${sbean.email}">
 
         <label>Mobile Number:</label> ${mobileErr} 
-        <input type="tel" name="mobile" >
+        <input type="tel" name="mobile"  value="${sbean.mobile}">
 
         <label>Address:</label> ${addressErr}
-        <textarea name="address" rows="3"></textarea>
+        <textarea name="address" rows="3"> ${sbean.address}</textarea>
 
         <div class="btn-container">
             <input type="submit" value="Register">

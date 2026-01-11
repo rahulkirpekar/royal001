@@ -2,9 +2,9 @@ package com.royal.bean;
 
 public class StudentBean 
 {
-	private int id;
+	private Integer id;
 	private String fullname;
-	private int age;    	
+	private Integer age;    	
 	private String course  ;
 	private String gender   ;       
 	private String hobbies[] ;
@@ -17,7 +17,7 @@ public class StudentBean
 	public StudentBean() 
 	{
 	}
-	public StudentBean(int id, String fullname, int age, String course, String gender, String hobbies[], String dob,
+	public StudentBean(Integer id, String fullname, Integer age, String course, String gender, String hobbies[], String dob,
 			String email, String mobile, String address) 
 	{
 		this.id = id;
@@ -31,10 +31,10 @@ public class StudentBean
 		this.mobile = mobile;
 		this.address = address;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getFullname() {
@@ -43,10 +43,10 @@ public class StudentBean
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 	public String getCourse() {
@@ -94,9 +94,15 @@ public class StudentBean
 	}
 	
 	
-	
-	
-	
-	
-	
+	public boolean isAvailableHobbies(String hobby) 
+	{
+		for (int i = 0; i < hobbies.length; i++) 
+		{
+			if(hobbies[i].equals(hobby)) 
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }
