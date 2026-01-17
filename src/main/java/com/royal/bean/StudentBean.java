@@ -96,6 +96,10 @@ public class StudentBean
 	
 	public boolean isAvailableHobbies(String hobby) 
 	{
+		if(hobbies == null) 
+		{
+			return false;
+		}
 		for (int i = 0; i < hobbies.length; i++) 
 		{
 			if(hobbies[i].equals(hobby)) 

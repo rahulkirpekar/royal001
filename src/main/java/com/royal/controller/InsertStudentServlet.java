@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import com.royal.bean.StudentBean;
+import com.royal.dao.StudentDao;
 import com.royal.util.StudentUtils;
 
 import jakarta.servlet.RequestDispatcher;
@@ -74,18 +75,18 @@ public class InsertStudentServlet extends HttpServlet
 		{
 			sbean.setHobbies(hobbies);
 			
-			String hobbiesStr = null;
-			for(int i = 0 ; i < hobbies.length;i++) 
-			{
-				if(i < (hobbies.length-1)) 
-				{
-					hobbiesStr = hobbiesStr + hobbies[i]+ ",";
-				}else 
-				{
-					hobbiesStr = hobbiesStr + hobbies[i]+ ".";
-				}
-			}
-			System.out.println("hobbiesStr : " + hobbiesStr);
+//			String hobbiesStr = null;
+//			for(int i = 0 ; i < hobbies.length;i++) 
+//			{
+//				if(i < (hobbies.length-1)) 
+//				{
+//					hobbiesStr = hobbiesStr + hobbies[i]+ ",";
+//				}else 
+//				{
+//					hobbiesStr = hobbiesStr + hobbies[i]+ ".";
+//				}
+//			}
+//			System.out.println("hobbiesStr : " + hobbiesStr);
 			
 		}else 
 		{
@@ -140,7 +141,18 @@ public class InsertStudentServlet extends HttpServlet
 			rd = request.getRequestDispatcher("studentregi.jsp");
 		} else 
 		{
-			rd = request.getRequestDispatcher("ListStudentServlet");
+			StudentDao dao = new StudentDao();
+			
+			int rowsAffected = dao.insertStudent(sbean);
+			
+			if (rowsAffected > 0) 
+			{
+				rd = request.getRequestDispatcher("ListStudentServlet");	
+			} else 
+			{
+				request.setAttribute("dbErr","<font color='red'>Database Connection Error.</font>");
+				rd = request.getRequestDispatcher("studentregi.jsp");	
+			}
 		}
 		rd.forward(request, response);
 	}

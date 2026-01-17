@@ -95,9 +95,9 @@
 
 
         <label>Gender:</label> ${genderErr}<br>
-        <input type="radio" name="gender" value="Male"  ${sbean.gender=='Male' ? 'checked' : ''}> Male
+        <input type="radio" name="gender" value="Male"    ${sbean.gender=='Male'   ? 'checked' : ''}> Male
         <input type="radio" name="gender" value="Female"  ${sbean.gender=='Female' ? 'checked' : ''}> Female
-        <input type="radio" name="gender" value="Other"  ${sbean.gender=='Other' ? 'checked' : ''}> Other
+        <input type="radio" name="gender" value="Other"   ${sbean.gender=='Other'  ? 'checked' : ''}> Other
         <br><br>
 
 
