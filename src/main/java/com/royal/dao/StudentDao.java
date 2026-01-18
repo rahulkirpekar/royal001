@@ -1,8 +1,10 @@
 package com.royal.dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.royal.bean.StudentBean;
 import com.royal.util.DBConnection;
@@ -46,4 +48,72 @@ public class StudentDao
 		}
 		return rowsAffected;
 	}
+
+	public ArrayList<StudentBean> getAllStudentRecords() 
+	{
+		ArrayList<StudentBean> list = new ArrayList<StudentBean>();
+		
+		String selectQuery = "SELECT * from student";
+		
+		Connection conn = DBConnection.getConnection();
+		Statement stmt = null;
+		ResultSet rs = null;
+		StudentBean sbean = null;
+		if (conn != null) 
+		{
+			try 
+			{
+				stmt = conn.createStatement();
+			
+				rs = stmt.executeQuery(selectQuery);
+				
+				while(rs.next()) 
+				{
+					int id = rs.getInt(1);
+					String fullname= rs.getString(2);
+					int age = rs.getInt(3);
+					String course= rs.getString(4);
+					String gender= rs.getString(5);
+					String hobbiesStr= rs.getString(6);
+					String dob= rs.getString(7);
+					String email = rs.getString(8);
+					String mobile = rs.getString(9);
+					String address = rs.getString(10);
+					
+					String hobbies[] = hobbiesStr.split(",");
+					
+					for (int i = 0; i < hobbies.length; i++) 
+					{
+						System.out.println("hobbies["+ i +"] : " +hobbies[i]);
+					}
+					sbean = new StudentBean(id, fullname, age, course, gender, hobbies, dob, email, mobile, address);
+					list.add(sbean);
+				}
+			
+			} catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+			
+		} else 
+		{
+			System.out.println("StudentDao--getAllStudentRecords() Db not Connecteed");
+		}
+		
+		return list;
+	}
+	public static void main(String[] args) 
+	{
+		StudentDao dao = new StudentDao();
+		
+		ArrayList<StudentBean> list = dao.getAllStudentRecords();
+		System.out.println("list.size() : " + list.size());
+		
+		for (int i = 0; i < list.size(); i++) 
+		{
+			StudentBean s = list.get(i);
+			System.out.println(s.getId()+" " + s.getFullname()+" " );
+		}
+	}
+	
 }

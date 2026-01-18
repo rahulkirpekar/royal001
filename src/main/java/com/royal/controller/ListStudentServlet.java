@@ -2,6 +2,10 @@ package com.royal.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import com.royal.bean.StudentBean;
+import com.royal.dao.StudentDao;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -15,5 +19,15 @@ public class ListStudentServlet extends HttpServlet
 	{
 		PrintWriter out= response.getWriter();
 		out.print("ListStudentServlet : Student record succssfully Inserted");
+		
+		StudentDao dao = new StudentDao();
+		
+		ArrayList<StudentBean> list = dao.getAllStudentRecords();
+		
+		request.setAttribute("list", list);
+		
+		
+		request.getRequestDispatcher("liststudent.jsp").forward(request, response);
+		
 	}
 }

@@ -17,9 +17,9 @@ public class EightServlet extends HttpServlet
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		// Data Ready
-		StudentBean s1 = new StudentBean(1, "Rahul", 12, 100);
-		StudentBean s2 = new StudentBean(2, "Ankur", 10, 100);
-		StudentBean s3 = new StudentBean(3, "Sagar", 11, 100);
+//		StudentBean s1 = new StudentBean(1, "Rahul", 12, 100);
+//		StudentBean s2 = new StudentBean(2, "Ankur", 10, 100);
+//		StudentBean s3 = new StudentBean(3, "Sagar", 11, 100);
 		
 		// request scope
 //		request.setAttribute("student1", s1);
@@ -36,10 +36,10 @@ public class EightServlet extends HttpServlet
 //		
 		
 		// get ServletContext objet
-		ServletContext context = getServletContext();
-		context.setAttribute("student1", s1);
-		context.setAttribute("student2", s2);
-		context.setAttribute("student3", s3);
+//		ServletContext context = getServletContext();
+//		context.setAttribute("student1", s1);
+//		context.setAttribute("student2", s2);
+//		context.setAttribute("student3", s3);
 		
 		
 //		request.getRequestDispatcher("NinthServlet").forward(request, response);
