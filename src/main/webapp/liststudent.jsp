@@ -8,6 +8,7 @@
 <title>Student Records</title>
 
 <style>
+    /* ===== Base Styles ===== */
     body {
         margin: 0;
         padding: 0;
@@ -15,9 +16,55 @@
         font-family: "Segoe UI", Arial, sans-serif;
     }
 
+    /* ===== Top Bar ===== */
+    .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: linear-gradient(90deg, #007bff, #0056b3);
+        padding: 12px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+
+    .brand {
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+    }
+
+    .brand span {
+        font-size: 14px;
+        font-weight: 400;
+        opacity: 0.9;
+        margin-left: 6px;
+    }
+
+    .logout-btn {
+        background: #ffffff;
+        color: #0056b3;
+        border: none;
+        padding: 8px 18px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .logout-btn:hover {
+        background: #dc3545;
+        color: #ffffff;
+    }
+
+    /* ===== Container ===== */
     .container {
         width: 95%;
-        margin: 30px auto;
+        margin: 25px auto;
         background: #ffffff;
         padding: 20px 25px;
         border-radius: 8px;
@@ -32,6 +79,7 @@
         font-size: 22px;
     }
 
+    /* ===== Table ===== */
     table {
         width: 100%;
         border-collapse: collapse;
@@ -49,20 +97,21 @@
         border-bottom: 1px solid #e0e0e0;
     }
 
-    table tbody tr:hover {
-        background-color: #f1f7ff;
-        transition: 0.2s;
-    }
-
     table th {
         font-weight: 600;
         text-transform: uppercase;
         font-size: 13px;
     }
 
+    table tbody tr:hover {
+        background-color: #f1f7ff;
+        transition: 0.2s;
+    }
+
+    /* ===== Action Buttons ===== */
     .action-btn {
         text-decoration: none;
-        padding: 6px 10px;
+        padding: 6px 12px;
         border-radius: 4px;
         font-size: 13px;
         font-weight: 500;
@@ -72,7 +121,7 @@
 
     .edit-btn {
         background: #28a745;
-        color: white;
+        color: #ffffff;
     }
 
     .edit-btn:hover {
@@ -81,7 +130,7 @@
 
     .delete-btn {
         background: #dc3545;
-        color: white;
+        color: #ffffff;
     }
 
     .delete-btn:hover {
@@ -95,15 +144,32 @@
         padding: 20px;
     }
 </style>
-
 </head>
+
 <body>
 
+<!-- ===== Top Navigation Bar ===== -->
+<div class="topbar">
+    <div class="brand">
+        Student Management System
+        <span>| Admin Panel</span>
+    </div>
+
+    <form action="LogoutServlet" method="post">
+        <button type="submit"
+                class="logout-btn"
+                onclick="return confirm('Are you sure you want to logout?');">
+            Logout
+        </button>
+    </form>
+</div>
+
+<!-- ===== Content ===== -->
 <div class="container">
     <h3>List of Student Records</h3>
 
     <%
-        ArrayList<StudentBean> list = 
+        ArrayList<StudentBean> list =
             (ArrayList<StudentBean>) request.getAttribute("list");
     %>
 
@@ -142,10 +208,10 @@
                 <td><%=s.getAddress()%></td>
                 <td>
                     <a href="" class="action-btn edit-btn">Edit</a>
-                    <a href="" 
+                    <a href=""
                        class="action-btn delete-btn"
                        onclick="return confirm('Are you sure you want to delete this record?');">
-                       Delete
+                        Delete
                     </a>
                 </td>
             </tr>
