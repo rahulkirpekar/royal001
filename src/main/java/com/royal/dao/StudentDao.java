@@ -115,5 +115,30 @@ public class StudentDao
 			System.out.println(s.getId()+" " + s.getFullname()+" " );
 		}
 	}
+
+	public int deleteStudentById(int id) 
+	{
+		String deleteQuery = "DELETE FROM Student WHERE id="+id;
+		System.out.println("deleteQuery : "  +deleteQuery);
+		
+		Connection conn = DBConnection.getConnection();
+		Statement stmt=  null;
+		int rowsAffected = 0;
+		if (conn!=null) 
+		{
+			try 
+			{
+				stmt =  conn.createStatement();
+				rowsAffected = stmt.executeUpdate(deleteQuery);
+			} catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		} else 
+		{
+			System.out.println("StudentDao--deleteStudentById()--Db not connected");
+		}
+		return rowsAffected;
+	}
 	
 }

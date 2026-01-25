@@ -166,7 +166,8 @@
 
 <!-- ===== Content ===== -->
 <div class="container">
-    <h3>List of Student Records</h3>
+    <h3>List of Student Records</h3> ${deleteSuccess} 
+    ${deleteDbError}
 
     <%
         ArrayList<StudentBean> list =
@@ -208,7 +209,7 @@
                 <td><%=s.getAddress()%></td>
                 <td>
                     <a href="" class="action-btn edit-btn">Edit</a>
-                    <a href=""
+                    <a href="DeleteStudentServlet?id=<%=s.getId()%>"
                        class="action-btn delete-btn"
                        onclick="return confirm('Are you sure you want to delete this record?');">
                         Delete
