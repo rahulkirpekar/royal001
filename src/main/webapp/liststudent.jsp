@@ -208,7 +208,7 @@
                 <td><%=s.getMobile()%></td>
                 <td><%=s.getAddress()%></td>
                 <td>
-                    <a href="" class="action-btn edit-btn">Edit</a>
+                    <a href="EditStudentServlet?id=<%=s.getId()%>" class="action-btn edit-btn">Edit</a>
                     <a href="DeleteStudentServlet?id=<%=s.getId()%>"
                        class="action-btn delete-btn"
                        onclick="return confirm('Are you sure you want to delete this record?');">

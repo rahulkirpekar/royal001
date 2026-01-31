@@ -102,20 +102,6 @@ public class StudentDao
 		
 		return list;
 	}
-	public static void main(String[] args) 
-	{
-		StudentDao dao = new StudentDao();
-		
-		ArrayList<StudentBean> list = dao.getAllStudentRecords();
-		System.out.println("list.size() : " + list.size());
-		
-		for (int i = 0; i < list.size(); i++) 
-		{
-			StudentBean s = list.get(i);
-			System.out.println(s.getId()+" " + s.getFullname()+" " );
-		}
-	}
-
 	public int deleteStudentById(int id) 
 	{
 		String deleteQuery = "DELETE FROM Student WHERE id="+id;
@@ -140,5 +126,52 @@ public class StudentDao
 		}
 		return rowsAffected;
 	}
-	
+
+	public StudentBean getStudentById(int id) 
+	{
+		String selectQuery = "SELECT * from student WHERE id="+id;
+		
+		Connection conn = DBConnection.getConnection();
+		Statement stmt = null;
+		ResultSet rs = null;
+		StudentBean sbean = null;
+		if (conn != null) 
+		{
+			try 
+			{
+				stmt = conn.createStatement();
+			
+				rs = stmt.executeQuery(selectQuery);
+				
+				rs.next(); 
+				int id1 = rs.getInt(1);
+				String fullname= rs.getString(2);
+				int age = rs.getInt(3);
+				String course= rs.getString(4);
+				String gender= rs.getString(5);
+				String hobbiesStr= rs.getString(6);
+				String dob= rs.getString(7);
+				String email = rs.getString(8);
+				String mobile = rs.getString(9);
+				String address = rs.getString(10);
+				
+				String hobbies[] = hobbiesStr.split(",");
+				
+				for (int i = 0; i < hobbies.length; i++) 
+				{
+					System.out.println("hobbies["+ i +"] : " +hobbies[i]);
+				}
+				sbean = new StudentBean(id1, fullname, age, course, gender, hobbies, dob, email, mobile, address);
+			
+			} catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+			
+		} else 
+		{
+			System.out.println("StudentDao--getStudentById() Db not Connecteed");
+		}
+		return sbean;
+	}
 }
