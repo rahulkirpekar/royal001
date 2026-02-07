@@ -1,6 +1,7 @@
 package com.royal.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -173,5 +174,42 @@ public class StudentDao
 			System.out.println("StudentDao--getStudentById() Db not Connecteed");
 		}
 		return sbean;
+	}
+
+	public int updateStudent(StudentBean sbean, int id) 
+	{
+		String updateQuery = "UPDATE student SET fullname=?,age=?,course=?,gender=?,hobbies=?,date_of_birth=?,email=?,mobile=?,address=? WHERE id=?";
+		System.out.println("updateQuery : " + updateQuery);
+		Connection conn = DBConnection.getConnection();
+		PreparedStatement pstmt=  null;
+		int rowsAffected = 0;
+		if (conn!=null) 
+		{
+			try 
+			{
+				pstmt =  conn.prepareStatement(updateQuery);
+				
+				pstmt.setString(1, sbean.getFullname());
+				pstmt.setInt(2, sbean.getAge());
+				pstmt.setString(3, sbean.getCourse());
+				pstmt.setString(4, sbean.getGender());
+				pstmt.setString(5, sbean.getHobbiesStr());
+				pstmt.setString(6, sbean.getDob());
+				pstmt.setString(7, sbean.getEmail());
+				pstmt.setString(8, sbean.getMobile());
+				pstmt.setString(9, sbean.getAddress());
+				
+				pstmt.setInt(10, id);
+				
+				rowsAffected = pstmt.executeUpdate();
+			} catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		} else 
+		{
+			System.out.println("StudentDao--insertStudent()--Db not connected");
+		}
+		return rowsAffected;
 	}
 }

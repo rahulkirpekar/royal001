@@ -135,6 +135,11 @@
 
     <form action="UpdateStudentServlet" method="post">
 
+	 <div class="form-group">
+            <label>Student Id <span class="error">${idErr}</span></label>
+            <input type="text" name="id" value="${sbean.id}" readonly="readonly">
+        </div>
+
         <div class="form-group">
             <label>Full Name <span class="error">${fullnameErr}</span></label>
             <input type="text" name="fullname" value="${sbean.fullname}">
@@ -200,9 +205,7 @@
             <button type="submit" class="btn btn-submit">Update</button>
             <button type="reset" class="btn btn-reset">Clear</button>
         </div>
-
     </form>
 </div>
-
 </body>
 </html>

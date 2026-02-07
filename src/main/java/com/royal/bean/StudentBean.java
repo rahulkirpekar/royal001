@@ -120,7 +120,7 @@ public class StudentBean
 				hobbiesStr = hobbiesStr + hobbies[i]+ ",";
 			}else 
 			{
-				hobbiesStr = hobbiesStr + hobbies[i]+ ".";
+				hobbiesStr = hobbiesStr + hobbies[i];
 			}
 		}
 		System.out.println("hobbiesStr : " + hobbiesStr);
