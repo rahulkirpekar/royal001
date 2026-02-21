@@ -7,7 +7,7 @@
   metadata-complete="true">
   <display-name>royal001</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.xhtml</welcome-file>
@@ -223,6 +223,17 @@
 		<servlet-name>UpdateStudentServlet</servlet-name>
 		<url-pattern>/UpdateStudentServlet</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>com.royal.controller.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/LogoutServlet</url-pattern>
+	</servlet-mapping>
+	
 	
 	
 </web-app>

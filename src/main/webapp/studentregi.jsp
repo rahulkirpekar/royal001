@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="jakarta.servlet.RequestDispatcher"%>
+<%@page import="com.royal.bean.UserBean"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -130,7 +132,29 @@
 
 <body>
 
+<%
+	UserBean userBean = (UserBean)session.getAttribute("userBean");
+
+	RequestDispatcher rd = null;
+	
+	if(userBean == null)
+	{
+		request.setAttribute("logoutErr", "<font color='red'>Invalid User,Login First</font>");
+		rd= request.getRequestDispatcher("login.jsp");
+		
+		rd.forward(request,response);
+		
+		return ;	
+	}
+%>
+
+	Welcome, ${sessionScope.userBean.name}
+	
+	
+	<a href="LogoutServlet">Logout</a>
+	
 <div class="container">
+
     <h2>Student Registration Form</h2>
 
     <form action="InsertStudentServlet" method="post">

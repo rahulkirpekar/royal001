@@ -1,0 +1,117 @@
+CREATE TABLE student (
+    id INT NOT NULL AUTO_INCREMENT,
+    fullname VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    course VARCHAR(50) NOT NULL,
+    gender ENUM('Male','Female','Other') NOT NULL,
+    hobbies SET('Reading','Music','Sports','Coding'),
+    date_of_birth DATE NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    mobile VARCHAR(15) NOT NULL,
+    address TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    PRIMARY KEY (id),
+    UNIQUE KEY unique_email (email)
+);
+
+
+
+
+
+INSERT INTO student
+(fullname, age, course, gender, hobbies, date_of_birth, email, mobile, address)
+VALUES
+
+('Aarav',21,'Core Java','Male','Reading,Coding','2004-01-10','aarav@gmail.com','9000000011','Ahmedabad'),
+('Meera',23,'Python','Female','Music,Reading','2002-03-12','meera@gmail.com','9000000012','Surat'),
+('Ravi',25,'React','Male','Coding,Sports','2000-05-14','ravi@gmail.com','9000000013','Rajkot'),
+('Neha',22,'Angular','Female','Music,Coding','2003-06-15','neha@gmail.com','9000000014','Vadodara'),
+('Suresh',28,'Spring Boot','Male','Reading','1997-07-16','suresh@gmail.com','9000000015','Ahmedabad'),
+('Priya',24,'AI ML','Female','Music,Sports','2001-08-17','priya2@gmail.com','9000000016','Gandhinagar'),
+('Vikas',27,'Core Java','Male','Coding','1998-09-18','vikas2@gmail.com','9000000017','Surat'),
+('Kajal',21,'Python','Female','Reading,Music','2004-10-19','kajal@gmail.com','9000000018','Rajkot'),
+('Nikhil',26,'React','Male','Sports,Coding','1999-11-20','nikhil@gmail.com','9000000019','Ahmedabad'),
+('Riya',20,'Angular','Female','Music','2005-12-21','riya@gmail.com','9000000020','Mehsana'),
+
+('Hardik',23,'Spring Boot','Male','Coding','2002-01-11','hardik@gmail.com','9000000021','Surat'),
+('Pooja',22,'AI ML','Female','Reading','2003-02-12','pooja2@gmail.com','9000000022','Rajkot'),
+('Amit',29,'Core Java','Male','Sports,Coding','1996-03-13','amit2@gmail.com','9000000023','Ahmedabad'),
+('Sneha',24,'Python','Female','Music,Coding','2001-04-14','sneha2@gmail.com','9000000024','Gandhinagar'),
+('Karan',25,'React','Male','Reading,Sports','2000-05-15','karan2@gmail.com','9000000025','Vadodara'),
+('Anjali',23,'Angular','Female','Music','2002-06-16','anjali2@gmail.com','9000000026','Surat'),
+('Jay',27,'Spring Boot','Male','Coding','1998-07-17','jay@gmail.com','9000000027','Rajkot'),
+('Heena',21,'AI ML','Female','Reading,Music','2004-08-18','heena@gmail.com','9000000028','Ahmedabad'),
+('Rohan',28,'Core Java','Male','Sports','1997-09-19','rohan@gmail.com','9000000029','Mehsana'),
+('Divya',22,'Python','Female','Music,Coding','2003-10-20','divya@gmail.com','9000000030','Surat'),
+
+('Chirag',24,'React','Male','Reading','2001-11-21','chirag@gmail.com','9000000031','Ahmedabad'),
+('Minal',23,'Angular','Female','Music','2002-12-22','minal@gmail.com','9000000032','Rajkot'),
+('Dhruv',26,'Spring Boot','Male','Coding','1999-01-23','dhruv@gmail.com','9000000033','Gandhinagar'),
+('Komal',20,'AI ML','Female','Reading,Coding','2005-02-24','komal@gmail.com','9000000034','Surat'),
+('Yash',27,'Core Java','Male','Sports','1998-03-25','yash@gmail.com','9000000035','Ahmedabad'),
+('Nisha',24,'Python','Female','Music','2001-04-26','nisha@gmail.com','9000000036','Vadodara'),
+('Tejas',25,'React','Male','Coding','2000-05-27','tejas@gmail.com','9000000037','Rajkot'),
+('Bhavna',21,'Angular','Female','Reading','2004-06-28','bhavna@gmail.com','9000000038','Mehsana'),
+('Kishan',29,'Spring Boot','Male','Sports,Coding','1996-07-29','kishan@gmail.com','9000000039','Ahmedabad'),
+('Reena',23,'AI ML','Female','Music,Reading','2002-08-30','reena@gmail.com','9000000040','Surat');
+
+
+
+INSERT INTO student 
+(fullname, age, course, gender, hobbies, date_of_birth, email, mobile, address)
+VALUES
+('Rahul Sharma',21,'BCA','Male','Reading,Coding','2003-02-15','rahul1@gmail.com','9876543001','Ahmedabad'),
+('Neha Patel',22,'MCA','Female','Music,Reading','2002-05-20','neha2@gmail.com','9876543002','Surat'),
+('Amit Verma',23,'BSc IT','Male','Sports,Coding','2001-08-11','amit3@gmail.com','9876543003','Vadodara'),
+('Pooja Shah',20,'BCA','Female','Reading','2004-01-09','pooja4@gmail.com','9876543004','Rajkot'),
+('Karan Mehta',24,'MSc IT','Male','Music,Sports','2000-12-19','karan5@gmail.com','9876543005','Ahmedabad'),
+('Sneha Joshi',21,'BCA','Female','Coding','2003-03-22','sneha6@gmail.com','9876543006','Mumbai'),
+('Vikas Yadav',25,'MCA','Male','Reading,Sports','1999-07-17','vikas7@gmail.com','9876543007','Delhi'),
+('Anjali Desai',22,'BSc IT','Female','Music','2002-09-05','anjali8@gmail.com','9876543008','Pune'),
+('Rohit Singh',23,'BCA','Male','Coding,Music','2001-11-30','rohit9@gmail.com','9876543009','Jaipur'),
+('Meena Nair',24,'MSc IT','Female','Reading,Coding','2000-06-14','meena10@gmail.com','9876543010','Kochi'),
+
+('Jay Patel',21,'BCA','Male','Sports','2003-04-01','jay11@gmail.com','9876543011','Ahmedabad'),
+('Kajal Gupta',22,'MCA','Female','Reading,Music','2002-10-10','kajal12@gmail.com','9876543012','Indore'),
+('Arjun Kapoor',23,'BSc IT','Male','Coding','2001-03-18','arjun13@gmail.com','9876543013','Delhi'),
+('Nidhi Jain',20,'BCA','Female','Music,Sports','2004-07-23','nidhi14@gmail.com','9876543014','Udaipur'),
+('Deepak Kumar',24,'MSc IT','Male','Reading','2000-05-11','deepak15@gmail.com','9876543015','Patna'),
+('Riya Roy',21,'BCA','Female','Coding,Music','2003-09-09','riya16@gmail.com','9876543016','Kolkata'),
+('Manish Tiwari',25,'MCA','Male','Sports,Coding','1999-02-27','manish17@gmail.com','9876543017','Lucknow'),
+('Priya Iyer',22,'BSc IT','Female','Reading','2002-01-31','priya18@gmail.com','9876543018','Chennai'),
+('Sandeep Rana',23,'BCA','Male','Music','2001-06-16','sandeep19@gmail.com','9876543019','Dehradun'),
+('Divya Soni',24,'MSc IT','Female','Coding,Reading','2000-08-21','divya20@gmail.com','9876543020','Bhopal'),
+
+('Mohit Agarwal',21,'BCA','Male','Sports,Music','2003-12-12','mohit21@gmail.com','9876543021','Kanpur'),
+('Komal Sharma',22,'MCA','Female','Reading,Coding','2002-03-03','komal22@gmail.com','9876543022','Noida'),
+('Yash Thakur',23,'BSc IT','Male','Coding','2001-10-08','yash23@gmail.com','9876543023','Shimla'),
+('Asha Pillai',20,'BCA','Female','Music','2004-11-25','asha24@gmail.com','9876543024','Trivandrum'),
+('Nikhil Jain',24,'MSc IT','Male','Reading,Sports','2000-04-30','nikhil25@gmail.com','9876543025','Nagpur'),
+('Pallavi Kulkarni',21,'BCA','Female','Coding','2003-05-13','pallavi26@gmail.com','9876543026','Pune'),
+('Rakesh Das',25,'MCA','Male','Music','1999-09-19','rakesh27@gmail.com','9876543027','Guwahati'),
+('Shreya Banerjee',22,'BSc IT','Female','Reading','2002-02-06','shreya28@gmail.com','9876543028','Kolkata'),
+('Tarun Arora',23,'BCA','Male','Coding,Sports','2001-01-14','tarun29@gmail.com','9876543029','Chandigarh'),
+('Bhavna Choudhary',24,'MSc IT','Female','Music,Coding','2000-07-29','bhavna30@gmail.com','9876543030','Jaipur'),
+
+('Harsh Vora',21,'BCA','Male','Reading','2003-06-20','harsh31@gmail.com','9876543031','Ahmedabad'),
+('Krupa Shah',22,'MCA','Female','Music','2002-04-11','krupa32@gmail.com','9876543032','Surat'),
+('Ankit Pandey',23,'BSc IT','Male','Coding','2001-08-02','ankit33@gmail.com','9876543033','Varanasi'),
+('Ritu Saxena',20,'BCA','Female','Sports','2004-09-09','ritu34@gmail.com','9876543034','Agra'),
+('Dinesh Kumar',24,'MSc IT','Male','Reading,Coding','2000-10-10','dinesh35@gmail.com','9876543035','Delhi'),
+('Heena Shaikh',21,'BCA','Female','Music,Reading','2003-11-01','heena36@gmail.com','9876543036','Hyderabad'),
+('Lokesh Gupta',25,'MCA','Male','Sports','1999-03-03','lokesh37@gmail.com','9876543037','Gwalior'),
+('Monika Arora',22,'BSc IT','Female','Coding','2002-12-17','monika38@gmail.com','9876543038','Amritsar'),
+('Pankaj Mishra',23,'BCA','Male','Music,Reading','2001-05-22','pankaj39@gmail.com','9876543039','Allahabad'),
+('Sejal Patel',24,'MSc IT','Female','Coding,Sports','2000-02-02','sejal40@gmail.com','9876543040','Ahmedabad'),
+
+('Aditya Rao',21,'BCA','Male','Reading','2003-01-15','aditya41@gmail.com','9876543041','Bangalore'),
+('Isha Kapoor',22,'MCA','Female','Music','2002-06-30','isha42@gmail.com','9876543042','Delhi'),
+('Kunal Shah',23,'BSc IT','Male','Coding','2001-07-19','kunal43@gmail.com','9876543043','Ahmedabad'),
+('Mitali Joshi',20,'BCA','Female','Reading,Coding','2004-08-08','mitali44@gmail.com','9876543044','Rajkot'),
+('Nilesh Parmar',24,'MSc IT','Male','Sports','2000-03-23','nilesh45@gmail.com','9876543045','Surat'),
+('Payal Deshmukh',21,'BCA','Female','Music,Reading','2003-10-12','payal46@gmail.com','9876543046','Nagpur'),
+('Rohan Kulkarni',25,'MCA','Male','Coding,Sports','1999-11-11','rohan47@gmail.com','9876543047','Pune'),
+('Sonal Jain',22,'BSc IT','Female','Reading','2002-07-27','sonal48@gmail.com','9876543048','Indore'),
+('Tushar Gupta',23,'BCA','Male','Music','2001-09-14','tushar49@gmail.com','9876543049','Noida'),
+('Vaishali Patil',24,'MSc IT','Female','Coding','2000-01-05','vaishali50@gmail.com','9876543050','Mumbai');

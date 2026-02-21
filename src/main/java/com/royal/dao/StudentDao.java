@@ -103,6 +103,86 @@ public class StudentDao
 		
 		return list;
 	}
+	
+	
+	
+	public ArrayList<StudentBean> getStudentByLimit(int start ,int end) 
+	{
+		ArrayList<StudentBean> list = new ArrayList<StudentBean>();
+		
+		String selectQueryByLimit = "SELECT * FROM student ORDER BY id LIMIT "+start+" , "+end+"";
+		
+		System.out.println("selectQueryByLimit : " + selectQueryByLimit);
+		
+		Connection conn = DBConnection.getConnection();
+		Statement stmt = null;
+		ResultSet rs = null;
+		StudentBean sbean = null;
+		if (conn != null) 
+		{
+			try 
+			{
+				stmt = conn.createStatement();
+			
+				rs = stmt.executeQuery(selectQueryByLimit);
+				
+				while(rs.next()) 
+				{
+					int id = rs.getInt(1);
+					String fullname= rs.getString(2);
+					int age = rs.getInt(3);
+					String course= rs.getString(4);
+					String gender= rs.getString(5);
+					String hobbiesStr= rs.getString(6);
+					String dob= rs.getString(7);
+					String email = rs.getString(8);
+					String mobile = rs.getString(9);
+					String address = rs.getString(10);
+					
+					String hobbies[] = hobbiesStr.split(",");
+					
+					for (int i = 0; i < hobbies.length; i++) 
+					{
+						System.out.println("hobbies["+ i +"] : " +hobbies[i]);
+					}
+					sbean = new StudentBean(id, fullname, age, course, gender, hobbies, dob, email, mobile, address);
+					list.add(sbean);
+				}
+			
+			} catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+			
+		} else 
+		{
+			System.out.println("StudentDao--getStudentByLimit() Db not Connecteed");
+		}
+		
+		return list;
+	}
+	public int getTotalRecords() {
+
+	    String sql = "SELECT COUNT(*) FROM student";
+
+	    Statement st;
+		try 
+		{
+			st = DBConnection.getConnection().createStatement();
+		
+			ResultSet rs = st.executeQuery(sql);
+			
+			if(rs.next()) 
+			{
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+	    return 0;
+	}
+
 	public int deleteStudentById(int id) 
 	{
 		String deleteQuery = "DELETE FROM Student WHERE id="+id;

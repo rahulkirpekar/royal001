@@ -1,0 +1,36 @@
+session create:-
+------------
+	1. HttpSession session = request.getSession();
+	2. HttpSession session = request.getSession(true);
+	3. HttpSession session = request.getSession(false);
+
+session verify:-
+------------
+	HttpSession session = request.getSession(false);
+
+LogoutServlet (session delete):-
+------------------------------
+
+	HttpSession session = request.getSession(false);
+	RequestDispacher rd = null;
+	if(session!=null)
+	{
+		// session---delete
+		session.invalidate();
+		request.setAttribute("loginAccess","<font color='green'>Logout successfully...!</font>");
+		rd =request.getRequestDispacher("login.jsp");
+	}else
+	{
+		request.setAttribute("loginAccess","<font color='red'>Invalid Access.</font>");
+		rd =request.getRequestDispacher("login.jsp");
+		rd.forward(request,response);
+	}
+
+
+
+
+
+
+
+
+

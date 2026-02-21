@@ -11,12 +11,20 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class UpdateStudentServlet extends HttpServlet
 {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		HttpSession session =	request.getSession(false);
+		
+		if(session == null) 
+		{
+			request.setAttribute("logoutErr", "<font color='red'>Invalid User,Login First</font>");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
 		// MIME
 		response.setContentType("text/html");
 		
@@ -77,20 +85,6 @@ public class UpdateStudentServlet extends HttpServlet
 		if(hobbies!=null) 
 		{
 			sbean.setHobbies(hobbies);
-			
-//			String hobbiesStr = null;
-//			for(int i = 0 ; i < hobbies.length;i++) 
-//			{
-//				if(i < (hobbies.length-1)) 
-//				{
-//					hobbiesStr = hobbiesStr + hobbies[i]+ ",";
-//				}else 
-//				{
-//					hobbiesStr = hobbiesStr + hobbies[i]+ ".";
-//				}
-//			}
-//			System.out.println("hobbiesStr : " + hobbiesStr);
-			
 		}else 
 		{
 			request.setAttribute("hobbiesErr","<font color='red'>Please enter valid Hobbies.</font>");
