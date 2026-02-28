@@ -235,6 +235,38 @@
 	</servlet-mapping>
 	
 	
+	<listener>
+		<display-name>TestServletRequestListener</display-name>
+		<listener-class>com.royal.listener.TestServletRequestListener</listener-class>
+	</listener>
+	
+	<listener>
+		<display-name>TestServletRequestAttriibuteListener</display-name>
+		<listener-class>com.royal.listener.TestServletRequestAttriibuteListener</listener-class>
+	</listener>
+	
+	
+	<listener>
+		<display-name>TestHttpSessionListener</display-name>
+		<listener-class>com.royal.listener.TestHttpSessionListener</listener-class>
+	</listener>
+	
+	<listener>
+		<display-name>TestHttpSessionAttributeListener</display-name>
+		<listener-class>com.royal.listener.TestHttpSessionAttributeListener</listener-class>
+	</listener>
+	
+	
+	<listener>
+		<display-name>TestServletContextListener</display-name>
+		<listener-class>com.royal.listener.TestServletContextListener</listener-class>
+	</listener>
+	
+	<listener>
+		<display-name>TestServletContextAttributeListener</display-name>
+		<listener-class>com.royal.listener.TestServletContextAttributeListener</listener-class>
+	</listener>
+	
 	
 </web-app>
 
