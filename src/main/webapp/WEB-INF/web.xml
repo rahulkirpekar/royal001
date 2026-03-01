@@ -225,6 +225,22 @@
 	</servlet-mapping>
 	
 	
+	<filter>
+		<filter-name>TestFilter</filter-name>
+		<filter-class>com.royal.filter.TestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>TestFilter</filter-name>
+		<url-pattern>/xyz</url-pattern>
+	</filter-mapping>
+	
+	
+	
+	
+	
+	
+	
+	
 	<servlet>
 		<servlet-name>LogoutServlet</servlet-name>
 		<servlet-class>com.royal.controller.LogoutServlet</servlet-class>

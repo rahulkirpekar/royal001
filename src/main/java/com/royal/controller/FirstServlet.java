@@ -21,30 +21,33 @@ public class FirstServlet extends HttpServlet
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		
+		System.out.println("=====FirstServlet : service() =====");
+		
 		// SET MIME
-		response.setContentType("text/html");
+//		response.setContentType("text/html");
 		
 //		System.out.println("=========FirstServlet---service()========="+ this);
 //		System.out.println("request : " + request);
 //		System.out.println("response : " + response);
 		
-		ServletConfig config =	getServletConfig();
-		
-		PrintWriter out = response.getWriter();
-		
-		out.print("<b>FirstServlet Object</b> : " + this+"<br>");
-		out.print("<b>FirstServletConfig Object</b> : " + config +"<br>");
-		
-		Enumeration<String> e =  config.getInitParameterNames();
-		
-		while(e.hasMoreElements()) 
-		{
-			String paramName = e.nextElement();
-			
-			String paramValue = config.getInitParameter(paramName);
-		
-			out.print("<b>"+paramName+"</b> : " + paramValue+"<br>");
-		}
+//		ServletConfig config =	getServletConfig();
+//		
+//		PrintWriter out = response.getWriter();
+//		
+//		out.print("<b>FirstServlet Object</b> : " + this+"<br>");
+//		out.print("<b>FirstServletConfig Object</b> : " + config +"<br>");
+//		
+//		Enumeration<String> e =  config.getInitParameterNames();
+//		
+//		while(e.hasMoreElements()) 
+//		{
+//			String paramName = e.nextElement();
+//			
+//			String paramValue = config.getInitParameter(paramName);
+//		
+//			out.print("<b>"+paramName+"</b> : " + paramValue+"<br>");
+//		}
 		
 		
 //		String URLNAME = config.getInitParameter("URLNAME");
