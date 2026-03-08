@@ -23,7 +23,7 @@ public class FirstServlet extends HttpServlet
 	{
 		
 		System.out.println("=====FirstServlet : service() =====");
-		
+		www
 		// SET MIME
 //		response.setContentType("text/html");
 		

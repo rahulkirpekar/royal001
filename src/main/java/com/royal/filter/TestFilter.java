@@ -26,11 +26,7 @@ public class TestFilter implements Filter
 		// place your code here---[Post-Filtering]
 		System.out.println("=========== TestFilter : doFilter() Post:Filtering ===========");
 	}
-	/**
-	 * @see Filter#destroy()
-	 */
 	public void destroy() 
 	{
 	}
-
 }
